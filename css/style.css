@@ -1,0 +1,450 @@
+:root{ /* definimos globales */
+    --blaco: #ffffff;
+    --negro: #000000;
+    --primario: #1E1E1E;
+    --secundario: #FEADBC;
+    --texto: #da8e9c;
+
+    --fuente: sans-serif;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /*selector para el borde para la modificacion del tamaño no afecte*/
+}
+
+*, *:before, *:after{
+    box-sizing: inherit; /* calcula los px y hace que no se salgan */
+}
+
+body{
+    font-family: var(--fuente);
+    margin: 0%;
+    min-width: 100%;
+}
+
+a{
+    color: var(--blaco);
+    text-decoration: none;
+}
+header{
+    min-height: 70px;/* altura minima */
+    display: flex;/* propiedades de flex para hacerse responsive */
+    background-color: var(--primario);/* color de fondo del header */
+    justify-content: space-between;/* tipo de sapacion de contenido (separa los bloque de header) */
+    align-items: center;/* los bloques de centran */
+    padding: 10px; /* relleno hacia adentro */
+}
+/* @media (min-width: 750px) {  header reponsive 
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+} */
+
+.logo{
+    display: flex; /* mustras las colosa horizontalmente */
+    align-items: center;/* los bloques de centran */
+    font-size: 1.6rem;
+}
+.logo img{
+    height: 5rem;/* altura(tamaño) de la img para ajustar el tamaño header */
+    margin-right: 1rem;/* separacion a la derecha */
+    margin-left: 2rem;/* sepacion del borde izquierdo */
+}
+@media (max-width:680px ) {
+    .logo img{
+        margin-right: 10px;/* separacion a la derecha */
+        margin-left: 0px;/* sepacion del borde izquierdo */
+    }
+}
+nav{
+    margin-right: 1rem;
+}
+nav a{
+    font-weight:600;/* letras negritas */
+    padding-right: 20px;/* separacion derecha */
+    font-size: 1.7rem;
+}
+nav a:hover{/* estulios al pasar el cursor */
+    color: var(--secundario);
+
+}
+@media (max-width:680px ) { /* min(para pc) max(para cellphone) */
+    header{
+        flex-direction: column;/* cambie la direccion de los contenedores */
+    }
+    nav{
+        padding: 10px 0px;/* (arriba-abajo) - (izquierda-derecha) */
+    }
+    nav a{
+        padding: 0% 10px;/* separacion derecha - izquierda */
+    }
+}
+
+/* HERO */
+.hero{
+    background-image: url(../img/hero_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40rem; /* altura de la img */
+    position: relative;
+    margin-bottom: 2rem;/* separacion con el contenido de abajo */
+}
+.contenido__hero{
+    position: absolute; /* contenido dentro de la seccionse pega a la de arriba */
+    background-color: rgba(0, 0, 0, 0.5); /*color por enciam de la img*/
+    width: 100%; /* el nuevo color toma todo el ancho de la seccion */
+    height: 100%; /* el nuevo color toma todo la altura de la seccion */
+
+    display: flex;/* coloca el contenido a la derecha */
+    flex-direction: column; /*los elemetos se van de arriba hacia abajo*/
+    align-items: center; /* centra el contenido horizontalmente */
+    justify-content: center;/* centra el contenido en medio (v-h)*/
+}
+
+.contenido__hero h2{
+    color: var(--blaco);
+    font-size: 5rem;
+}
+.boton-info{
+    background-color: var(--primario);
+    padding: 1rem;  /*relleno de adentro (separacion de bordes)(ariiba-abajo / izquierda-derecha)*/
+    margin-top: 2rem; /*separacion del elemento de arriba y el boton*/
+    font-size: 1.7rem;
+    font-weight: bold;/* letras negritas */
+    border-radius: .5rem;
+    width: 20rem;/* ancho del lo azul (el contenido azul) */
+    text-align: center;
+    border: none;
+}
+.boton-info:hover{
+    cursor: pointer;
+    background-color: var(--secundario);
+    color: var(--negro);
+}
+/* BLOG PROPOSITO */
+.proposito_blog {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(167, 166, 166);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 0 auto;
+   /*  position: relative; /* podemos posicionarlo donde sea */
+   /*  bottom: 1.5rem; */
+}
+@media (max-width: 550px ) {
+    .proposito_blog p{
+        padding: .3rem;   
+        font-size: 1.2rem;
+    }
+}
+/* LOGO FIJADO */
+.logo_fixed img{ 
+    height: 10rem; /* tamaño del logo fijo */
+    position: fixed; /* lo dejamos fijado */
+    margin-left:3rem;
+    top: 50rem; /* hubicacion del contenido */
+}
+@media (max-width: 700px) {
+    .logo_fixed img{ 
+        visibility: hidden;
+    }    
+}
+
+/* CONTENEDOR (blog) */
+.contenedor{
+    max-width: 80rem; /* tamaño maximo del contenedor */
+    margin: 0 auto 0 auto;
+    width: 95%;/* % para que pueda fluir y separacion de bordes */
+    margin-top: 2rem; /* separcion de seccion */
+    margin-bottom: 5rem;
+    align-items: center;/* los bloques de centran */
+}
+.sombra{
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.71);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.71);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.71);   
+
+    padding: 2rem;/*separacion del contenido de todos los bordes (texto)*/
+    border-radius: .5rem;/*redondeo de las equinas*/
+}
+@media (max-width: 550px) {
+    .sombra{
+        padding: 1rem; /* ************* relleno ¨¨¨¨¨¨¨********* */
+        width: 92%; /* ancho del contenido */
+    }
+    .hunter{
+        width: 100%;
+    }
+    
+}
+.letra_capital::first-letter{/* letra grande */
+    font-size: 5rem;
+    float: left;
+    font-weight: bold;
+    line-height: 50px; /* interlineado mas corco */
+   /*   padding: 2px; */
+   margin-right: 5px;
+   border: .5px solid #999999;
+   border-radius: 3px;
+}
+@media (max-width: 550px) {
+    .letra_capital::first-letter{
+        font-size: 6rem;
+    }
+}
+article p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    /* text-align: center; */
+    line-height: 2; /* aplica un interlineado */
+}
+.parrafo_rosa{
+    font-weight: bold;
+    color: var(--texto);
+}
+.parrafo_oscuro{
+    font-weight: bold;
+    color: var(--primario);
+}
+.hunter{
+    max-width: 100%;
+    width: 50rem;
+    text-align: center;
+    display:block;
+    margin:auto;
+    border-radius: 1rem;
+}
+.sub_tema{
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* FOOTER */
+footer{
+    background-color: var(--primario);
+    padding: 7rem;
+    /* text-align: center; */
+    color: var(--blaco);
+    font-family: 'Montserrat', sans-serif;
+}
+footer section{
+    float: right; /*la seccion se pasa a la derechas*/
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+footer a{
+    margin: 0;
+/*     width: 40rem;
+ */    padding: 0 2rem;
+}
+footer p{
+    margin: 0%;
+    font-size: 1.5rem;
+    width: 30rem;
+
+}
+footer a:hover{
+    color:var(--texto); /*cambiara de color al pasar el cursor por encima*/
+    transition: color 1s ease; /*transicion al momento de sobreponer el cursor*/
+}
+@media (max-width: 550px ) {
+    footer {
+        display: grid;
+        justify-content: center;
+        text-align:center;
+        gap: 3rem;
+        margin: 0 auto
+}
+footer p{
+    font-size: 1.2rem;
+}
+}
+
+/* NOSOTROS */
+.nosotros {
+    text-align: center;
+    background-color: #f1f0f0;
+    padding: 1rem;
+    font-weight: bold;
+}
+.nosotros_p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+}
+/* Lita de eitores */
+.lista_editores{
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 3;
+}
+ul{
+    list-style-type: none;
+}
+li::before{
+    content: "◼";
+    font-size: 1.7rem;
+    color: var(--texto);
+}
+@media (max-width:550px ) {
+    .lista_editores{
+        font-size: 1.3rem;
+        position: relative;
+        right: 3rem;
+    }
+}
+
+/* CATEGORIAS */
+/* clase grid */
+.contenedor_categorias{
+    max-width: 90rem; /* maxima anchura */
+    margin: 3rem auto; /* margenes de sepacion de contenidos */
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    gap: 2rem;
+}
+.genero{
+    background-color: #d8d6d6;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+.genero:hover{
+    -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+
+    cursor: pointer; /*la manera en la que se muestra el cursor (puden ir dentro de seccion article solo*/ 
+    transition: box-shadow .5s ease; /*trancicion al pasarle el cursor*/
+}
+.genero_img{
+    width: 100%; /* importante para que las imagenes se matengan en su formato */
+    border-radius: .5rem;
+}
+.genero_nombre{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 1.5rem;
+}
+.genero_resumen{
+    font-size: 1.4rem;
+    margin: 0;
+}
+.genero_nombre,
+.genero_resumen{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primario);
+}
+@media (max-width: 550px) {
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+        }
+    .genero_bishoujo{
+        grid-row: 5 / 6; /* de donde  a donde va estar colocada la camisa (vertical) */
+        grid-column: 1 / 3; /* de donde  a donde va estar colocada la camisa (horizontal) */
+    }
+}
+
+/* REGISTRO */
+
+.contenedor_registro{
+    margin: 4rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.formulario{
+    background-color: rgb(230, 233, 232);
+    width: min( 70rem, 100%); /*utiliza el valor mas pequeño para achicar el formulario*/
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.formulario fieldset{
+    border: none; /*elimina el borde por defecto del fomulario*/
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--primario); /*pinta de blacno las letras pincipales del campo del formulario*/
+    font-weight: bold;
+    margin-bottom: .5rem;
+    font-size: 1.9rem;
+    display: block; /* pone cada contenido uno sobre el otro(vertical) */
+}
+.campo input{
+    height: 3rem;
+    width: 100%;
+    border-radius: .2rem;
+    border: none; /*elimina el borde por defecto del fomulario*/
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+.boton_subcribir{
+    width: 100%;
+    background-color: var(--secundario);
+    border: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin-top: 2rem;
+    transition: font-size .5s ease;/* cambia de tamaño el etxto al pasar el cursor */
+}
+.boton_subcribir:hover{
+    cursor: pointer;
+    font-size: 1.8rem;
+    background-color: var(--texto);
+}
+@media (min-width: 480px) { /*modificaion para pcr*/
+    .boton_subcribir{
+        width: auto; /*se reicia el valor para el boton (tamaño)*/
+        border-radius: .2rem;
+    }
+    .formulario{
+        width: 60rem;
+        padding: 2rem;
+    }
+    .campo input{
+        height: 4rem;
+        font-size: 1.5rem;
+        padding: 1rem;
+        border: 2px solid #d0d0d0 ;
+    }
+
+    .contenedor_registro{
+        margin: 7rem 1rem;
+    }
+}
+
+/* VIDEO */
+.contenedor_video{
+    margin: 8rem auto;
+    align-items: center;
+    text-align: center;
+    
+    overflow:hidden; /* video resposive */
+    padding-bottom:400px; /* Adecua este valor para controlar la altura del video */
+    position:relative;
+    height:0;
+    
+}
+
+@media (max-width: 500px) { /* video responsive */
+   .contenedor_video iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+}
